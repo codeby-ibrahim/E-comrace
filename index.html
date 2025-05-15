@@ -2,133 +2,97 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plantify - E-Commerce</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <link rel="stylesheet" href="style.css">
-  <title>E-comrace</title>
 </head>
 
-<body class="bg-gray-800 text-white">
-  <div class="bg-gray-400 p-4 mb-6">
-    <div class="container  max-w-6xl mx-auto flex flex-col items-center gap-8">
-      <!-----search Area------>
-      <div class="relative w-full">
-        <input type="text" id="search" class="bg-gray-700 rounded-full p-2 pl-10 foucus:w-full "
-          placeholder="search procducts">
+<body class="bg-green-50 text-gray-800">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <h1 class="text-2xl font-bold text-green-700">Plantify</h1>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#" class="text-gray-600 hover:text-green-600">Home</a>
+        <a href="#" class="text-gray-600 hover:text-green-600">Shop</a>
+        <a href="#" class="text-gray-600 hover:text-green-600">About</a>
+        <a href="#" class="text-gray-600 hover:text-green-600">Contact</a>
+      </nav>
+      <div>
+        <button id="cartBtn" class="relative">
+          <svg class="w-6 h-6 text-green-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.4 5h13.8M7 13l1.5-5h9" />
+          </svg>
+          <span id="cartCount"
+            class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+        </button>
       </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-green-100 py-20 text-center">
+    <h2 class="text-4xl font-bold mb-4">Bring Nature Home</h2>
+    <p class="text-lg text-gray-600 mb-6">Shop the best indoor plants and make your space green</p>
+    <a href="#products" class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition">
+      Browse Plants
+    </a>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="max-w-7xl mx-auto px-4 py-12">
+    <h3 class="text-2xl font-bold mb-6">Popular Plants</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Example Product -->
+      <div class="bg-white p-4 rounded-xl shadow hover:shadow-lg transition">
+        <img src="https://source.unsplash.com/300x300/?plant" alt="Plant" class="rounded-lg mb-4">
+        <h4 class="font-semibold text-lg">Fiddle Leaf Fig</h4>
+        <p class="text-green-700 font-bold">$29.99</p>
+        <button onclick="addToCart('Fiddle Leaf Fig', 29.99)"
+          class="mt-2 w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">Add to Cart</button>
+      </div>
+      <!-- Repeat product cards as needed -->
+    </div>
+
+    <h3 class="text-2xl font-bold mb-6">Popular Plants</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Example Product -->
+      <div class="bg-white p-4 rounded-xl shadow hover:shadow-lg transition">
+        <img src="https://source.unsplash.com/300x300/?plant" alt="Plant" class="rounded-lg mb-4">
+        <h4 class="font-semibold text-lg">Fiddle Leaf Fig</h4>
+        <p class="text-green-700 font-bold">$29.99</p>
+        <button onclick="addToCart('Fiddle Leaf Fig', 29.99)"
+          class="mt-2 w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">Add to Cart</button>
+      </div>
+      <!-- Repeat product cards as needed -->
+    </div>
+
+
+    <h3 class="text-2xl font-bold mb-6">Popular Plants</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Example Product -->
+      <div class="bg-white p-4 rounded-xl shadow hover:shadow-lg transition">
+        <img src="https://source.unsplash.com/300x300/?plant" alt="Plant" class="rounded-lg mb-4">
+        <h4 class="font-semibold text-lg">Fiddle Leaf Fig</h4>
+        <p class="text-green-700 font-bold">$29.99</p>
+        <button onclick="addToCart('Fiddle Leaf Fig', 29.99)"
+          class="mt-2 w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">Add to Cart</button>
+      </div>
+      <!-- Repeat product cards as needed -->
+    </div>
+
+  </section>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white w-96 p-6 rounded-xl shadow-lg relative">
+      <h3 class="text-xl font-bold mb-4">Your Cart</h3>
+      <ul id="cartItems" class="space-y-2 text-sm"></ul>
+      <p class="mt-4 font-semibold">Total: $<span id="cartTotal">0.00</span></p>
+      <button onclick="closeCart()"
+        class="mt-4 w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Close</button>
     </div>
   </div>
-  <main class="flex flex-col md:flex-row mx-auto container max-w-6xl">
-    <!-- Filter Area -->
-    <div class="space-y-4 p-4 w-[200px]">
-      <h2 class="text-2xl font-bold">Filter</h2>
-      <h3 class="text-xl font-semibold">Category</h3>
-      <div id="filter_container" class="text-xl space-y-2">
-        <div>
-          <input type="checkbox" class="check" id="cameras">
-          <label for="cameras">Cameras</label>
-        </div>
-        <div>
-          <input type="checkbox" class="check" id="smartphone">
-          <label for="smartphone">Smartphones</label>
-        </div>
-        <div>
-          <input type="checkbox" class="check" id="games">
-          <label for="games">Games</label>
-        </div>
-        <div>
-          <input type="checkbox" class="check" id="television">
-          <label for="television">Television</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Products Wrap -->
-    <div id="products" class="w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
-
-      <div class="item">
-        <div class="bg-white rounded-2xl shadow-md overflow-hidden group transition-all hover:shadow-xl relative">
-          <!-- Product Image -->
-          <div class="relative">
-            <img src="images/playstation_5.png" alt="PlayStation 5" class="w-full h-20 object-contain bg-gray-100 p-4">
-            <button
-              class="absolute top-2 right-2 bg-black text-white text-xs px-4 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              Buy Now
-            </button>
-          </div>
-
-          <!-- Card Content -->
-          <div class="p-4">
-            <h3 class="text-lg font-semibold text-gray-800">PlayStation 5</h3>
-            <p class="text-sm text-gray-600 mt-1">Ultra-fast load times. Stunning graphics. A new generation of gaming.
-            </p>
-            <div class="mt-3 text-green-600 font-bold text-base">$499.99</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div id="products" class="w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
-
-      <div class="item">
-        <div class="bg-white rounded-2xl shadow-md overflow-hidden group transition-all hover:shadow-xl relative">
-          <!-- Product Image -->
-          <div class="relative">
-            <img src="images/sony_zv1f_camera.png" alt="PlayStation 5"
-              class="w-full h-20 object-contain bg-gray-100 p-4">
-            <button
-              class="absolute top-2 right-2 bg-black text-white text-xs px-4 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              Buy Now
-            </button>
-          </div>
-
-          <!-- Card Content -->
-          <div class="p-4">
-            <h3 class="text-lg font-semibold text-gray-800">PlayStation 5</h3>
-            <p class="text-sm text-gray-600 mt-1">Ultra-fast load times. Stunning graphics. A new generation of gaming.
-            </p>
-            <div class="mt-3 text-green-600 font-bold text-base">$499.99</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div id="products" class="w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
-
-      <div class="item">
-        <div class="bg-white rounded-2xl shadow-md overflow-hidden group transition-all hover:shadow-xl relative">
-          <!-- Product Image -->
-          <div class="relative">
-            <img src="images/samsung_galaxy.png" alt="PlayStation 5" class="w-full h-20 object-contain bg-gray-100 p-4">
-            <button
-              class="absolute top-2 right-2 bg-black text-white text-xs px-4 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              Buy Now
-            </button>
-          </div>
-
-          <!-- Card Content -->
-          <div class="p-4">
-            <h3 class="text-lg font-semibold text-gray-800">PlayStation 5</h3>
-            <p class="text-sm text-gray-600 mt-1">Ultra-fast load times. Stunning graphics. A new generation of gaming.
-            </p>
-            <div class="mt-3 text-green-600 font-bold text-base">$499.99</div>
-          </div>
-        </div>
-      </div>
-
-
-
-    </div>
-
-  </main>
-
-</body>
-
-</html>
